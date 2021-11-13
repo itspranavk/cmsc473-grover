@@ -77,7 +77,7 @@ The model trained using this dataset is obviously terrible, and should not be us
 ### Using Grover for Discrimination
 Using Grover in discrimination mode is easy, assuming you have a pre-trained model to work with.
 
-1. The the anaconda prompt, use `python discrimintion\run_discrimination.py -input_data realnews\realnews_tiny.jsonl -output_dir test_discrimination_output`. Here we are using the same articles from the previous section to determine if they're written by people or not. Additionally, we are using the output directory from the previous section. It is important to use an output directory from a pre-trained model in this step because that's where `run_discrimination.py` is expecting the checkpoints to be.
+1. The the anaconda prompt, use `PYTHONPATH=$(pwd) python discrimination\run_discrimination.py -input_data realnews\realnews_tiny.jsonl -output_dir test_discrimination_output`. Here we are using the same articles from the previous section to determine if they're written by people or not. Additionally, we are using the output directory from the previous section. It is important to use an output directory from a pre-trained model in this step because that's where `run_discrimination.py` is expecting the checkpoints to be.
 
 As before, it is sort of pointless to test the model using the same data that was used to train it, but this really only serves to make sure it is working properly. Once we have the correct realnews dataset, we can use `run_discrimination.py` to train and test grover in a more realistic sense. In order to do that, the following arguments are specified:
 
