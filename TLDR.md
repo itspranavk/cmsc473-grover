@@ -17,12 +17,7 @@ We can prepare data such that it gives the generator context. The April 2019 sam
 We can generate fake articles using the command:
 
 ```
-PYTHONPATH=$(pwd) python sample/contextual_generate.py \
-    -model_config_fn lm/configs/large.json \ 
-    -model_ckpt models/medium/model.ckpt-1562 \
-    -metadata_fn sample/april2019_set_mini.jsonl \
-    -out_fn april2019_set_mini_out.jsonl \ 
-    -top_p 0.96
+PYTHONPATH=$(pwd) python sample/contextual_generate.py -model_config_fn lm/configs/large.json -model_ckpt models/medium/model.ckpt-1562 -metadata_fn sample/april2019_set_mini.jsonl -out_fn april2019_set_mini_out.jsonl -top_p 0.96
 ```
 
 This will use the chosen model with the correct configuration file for the network structure.
@@ -47,13 +42,7 @@ I've created two additional datasets from the `realnews_tiny.jsonl` dataset: one
 This command will start the training process.
 
 ```
-PYTHONPATH=$(pwd) python discrimination/run_discrimination.py \
-    -config_file lm/configs/large.json \
-    -input_data realnews/realnews_tiny-train.jsonl \
-    -output_dir models/test \
-    -do_train True \
-    -batch_size 5 \
-    -num_train_epochs 1.0
+PYTHONPATH=$(pwd) python discrimination/run_discrimination.py -config_file lm/configs/large.json -input_data realnews/realnews_tiny-train.jsonl -output_dir models/test -do_train True -batch_size 5 -num_train_epochs 1.0
 ```
 
 The trained model will be stored under `models/test`. Make sure to delete this directory if you are retraining the model for the same output directory. This will create a small scale generator and create checkpoints for the discriminator.
@@ -72,12 +61,7 @@ A few things to keep in mind:
 This command will start the testing process.
 
 ```
-PYTHONPATH=$(pwd) python discrimination/run_discrimination.py \
-    -config_file lm/configs/large.json \
-    -input_data realnews/realnews_tiny-test.jsonl \
-    -output_dir models/medium \
-    -batch_size 5 \
-    -predict_test
+PYTHONPATH=$(pwd) python discrimination/run_discrimination.py -config_file lm/configs/large.json -input_data realnews/realnews_tiny-test.jsonl -output_dir models/medium -batch_size 5 -predict_test
 ```
 
 Make sure to include the `-predict_test` flag! Otherwise, the model will not actually test anything. After running the discrimination, the model will generate a few files: `test.tf_record` and `test-probs.npy`. 
