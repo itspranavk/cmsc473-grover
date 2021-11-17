@@ -19,6 +19,9 @@ For discrimination finetuning (e.g. saying whether or not the generation is huma
 import json
 import os
 
+import warnings
+warnings.simplefilter(action='ignore', category=FutureWarning)
+
 import numpy as np
 import tensorflow as tf
 from tensorflow.python.lib.io import file_io
@@ -125,7 +128,10 @@ def _flatten_and_tokenize_metadata(encoder, item):
     """
     metadata = []
     for key in ['domain', 'date', 'authors', 'title', 'article']:
-        val = item.get(key, None)
+        if key == 'article':
+            val = item.get('text', None)
+        else:
+            val = item.get(key, None)
         if val is not None:
             metadata.append(encoder.__dict__[f'begin_{key}'])
             metadata.extend(encoder.encode(val))
