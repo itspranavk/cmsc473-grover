@@ -56,7 +56,7 @@ A few things to keep in mind:
 - Make sure all testing articles have flag `"split": "test"` in the `jsonl` file.
 - Make sure all labels are set correctly `"label": "human"` or `"label": "machine"`
 
-### Training the Model
+### Testing the Model
 
 This command will start the testing process.
 
