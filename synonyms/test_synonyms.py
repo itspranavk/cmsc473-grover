@@ -39,7 +39,9 @@ for i in range(0, len(unmodified)):
 
     idxs = list(range(0, len(words)))
     random.shuffle(idxs)
-
+    
+    num = 1;
+    
     for j in idxs:
         words[j] = syns[j]
 
@@ -49,6 +51,9 @@ for i in range(0, len(unmodified)):
         unmodified[i]["authors"] = "[]"
         unmodified[i]["split"] = "test"
         unmodified[i]["label"] = ""
+        unmodified[i]["numSyns"] = num
+        
+        num++
 
         output_file.write(json.dumps(unmodified[i]) + '\n')
 
