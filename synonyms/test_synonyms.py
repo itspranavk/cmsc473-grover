@@ -48,6 +48,7 @@ for i in range(0, len(unmodified)):
 
         unmodified[i]["authors"] = "[]"
         unmodified[i]["split"] = "test"
+        unmodified[i]["label"] = ""
 
         output_file.write(json.dumps(unmodified[i]) + '\n')
 
