@@ -33,3 +33,6 @@ gcloud compute tpus execution-groups create \
 
 5. ssh to your VM. You need to set up the paths in the python script. Make sure the path refers to the correct google cloud bucket.
 
+# Tips
+- Make sure to stop your TPU after you're done using it or Google will delete it
+- Make sure files you access when using TPU are in cloud storage
