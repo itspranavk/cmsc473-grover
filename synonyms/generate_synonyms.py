@@ -39,6 +39,7 @@ for i in range(0, len(articles)):
         
         if (wordnet.synset(words[j]).wup_similarity(wordnet.synset(syn)) > 0.55):
             words[j] = syn
+            num = num + 1
 
         new_article = ' '.join(words)
         articles[i]["text"] = new_article
@@ -47,8 +48,6 @@ for i in range(0, len(articles)):
         articles[i]["split"] = "test"
         articles[i]["label"] = ""
         articles[i]["numSyns"] = num
-        
-        num++
 
         output_file.write(json.dumps(unmodified[i]) + '\n')
 
