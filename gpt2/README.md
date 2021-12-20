@@ -9,10 +9,10 @@ The gpt2_sent and gpt2_perturb scripts take in a set of real-news articles, and 
 ## Running the scripts
 Make sure that the output files specified in the scripts do not exist or are not located in the same directory.
 Run for sentence replacement:
-'''
+```
 python gpt2_sent.py
-'''
+```
 Run for paragraph replacement:
-'''
+```
 python gpt2_perturb.py
-'''
+```
