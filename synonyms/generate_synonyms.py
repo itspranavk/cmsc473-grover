@@ -50,7 +50,7 @@ for i in range(0, len(articles)):
         articles[i]["authors"] = "[]"
         articles[i]["split"] = "test"
         articles[i]["label"] = ""
-        articles[i]["numSyns"] = num
+        articles[i]["numSyns"] = str(num)
 
         output_file.write(json.dumps(articles[i]))
 	output_file.write("\n")
