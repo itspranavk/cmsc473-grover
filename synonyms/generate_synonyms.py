@@ -35,11 +35,14 @@ for i in range(0, len(articles)):
     num = 1;
     
     for j in idxs:
-        syn = wordnet.synsets(words[j])[0].lemmas()[0].name()
+        synset = wordnet.synsets(words[j])
         
-        if (wordnet.synset(words[j]).wup_similarity(wordnet.synset(syn)) > 0.55):
-            words[j] = syn
-            num = num + 1
+        try:
+            if (len(synset) > 0):
+                words[j] = synset[0].lemmas()[0].name()
+                num  = num + 1
+        except ValueError:
+             print("Something went wrong for word: " + synset[0].lemmas()[0].name() + "\n");
 
         new_article = ' '.join(words)
         articles[i]["text"] = new_article
@@ -49,6 +52,8 @@ for i in range(0, len(articles)):
         articles[i]["label"] = ""
         articles[i]["numSyns"] = num
 
-        output_file.write(json.dumps(unmodified[i]) + '\n')
+        output_file.write(json.dumps(articles[i]))
+		
+    print(num)
 
 output_file.close()
