@@ -16,3 +16,7 @@ Run for paragraph replacement:
 ```
 python gpt2_perturb.py
 ```
+To run unit tests, run:
+```
+python -m unittest
+```
