@@ -53,6 +53,7 @@ for i in range(0, len(articles)):
         articles[i]["numSyns"] = num
 
         output_file.write(json.dumps(articles[i]))
+	output_file.write("\n")
 		
     print(num)
 
