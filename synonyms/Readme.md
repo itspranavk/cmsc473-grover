@@ -10,4 +10,3 @@ To install NLTK Wordnet:
 
 Then, call `python generate_synonyms.py <input directory> <output directory>` to generate the synonyms.
 
-Lastly, run 
