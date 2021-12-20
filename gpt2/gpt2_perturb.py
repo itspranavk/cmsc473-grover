@@ -31,7 +31,7 @@ def replaceQuotes(text):
             start = True
     return replacing
 
-with open('realnews/supertiny.jsonl', 'r') as fr:
+with open('marko_realnews.jsonl', 'r') as fr:
     lines  = fr.readlines()
 
 toWrite = []
