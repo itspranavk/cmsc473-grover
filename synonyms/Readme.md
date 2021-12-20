@@ -8,5 +8,5 @@ To install NLTK Wordnet:
 2. Run the python shell and enter two commands, `import nltk` and `nltk.download()`. This will open the nltk downloader
 3. In the downloader, select "Corpora" and scroll down to "Wordnet". Click download.
 
-Then, call `python generate_synonyms.py <input directory> <output directory>` to generate the synonyms.
+Then, call `python generate_synonyms.py <input json file> <output json file>` to generate the synonyms.
 
