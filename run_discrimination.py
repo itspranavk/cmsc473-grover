@@ -130,6 +130,8 @@ def _flatten_and_tokenize_metadata(encoder, item):
     for key in ['domain', 'date', 'authors', 'title', 'article']:
         if key == 'article':
             val = item.get('text', None)
+        elif key == 'date':
+            val = item.get('publish_date', None)
         else:
             val = item.get(key, None)
         if val is not None:
