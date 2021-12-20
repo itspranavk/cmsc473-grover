@@ -1,4 +1,5 @@
 import json
+import unittest
 
 
 with open('syn_output.jsonl', 'r') as json_file:
@@ -41,4 +42,36 @@ with open('output.jsonl', 'w') as outfile:
         json.dump(entry, outfile)
         outfile.write('\n')
 
+# Unit tests
+class ArticleTestCase(unittest.TestCase):
+    def setUp(self):
+        with open('output.jsonl', 'r') as articlefile:
+            self.articles = list(articlefile)
+            
+    # Test that the correct keys have been added
+    def test_keys_present(self):
+        for string in self.articles:
+            result = json.loads(string)
+            
+            self.assertTrue(result['article'] is not None)
+            self.assertTrue(result['authors'] is not None)
+            self.assertTrue(result['label'] is not None)
+            self.assertTrue(result['date'] is not None)
+            
+            self.assertTrue(result['text'] is None)
+            self.assertTrue(result['summary'] is None)
+            self.assertTrue(result['gens_article'] is None)
+            self.assertTrue(result['url_used'] is None)
+            self.assertTrue(result['publish_date'] is None)
+            self.assertTrue(result['warc_date'] is None)
+            self.assertTrue(result['inst_index'] is None)
+            self.assertTrue(result['status'] is None)
+            
+    # Test that the contents of each key are correct
+    def test_article_content(self):
+        for string in self.articles:
+            result = json.loads(string)
+            
+            self.assertEqual(result['authors'], "")
+            self.assertEqual(result['label'], 'machine')
 
