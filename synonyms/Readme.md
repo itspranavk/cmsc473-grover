@@ -1,6 +1,6 @@
 The script generate_sysnonyms.py takes as input a set of articles and outputs a new set of articles, in which words have been changed
 to their synonyms (the first article in the new set has one word changed, the next article has two words changed, etc.). The new articles
-have a new JSON element, 'numSyns'. which is simply the number of synnonyms present in the article. Synonyms are generated using the
+have a new JSON element, 'numSyns'. which is simply the number of synonyms present in the article. Synonyms are generated using the
 [NLTK wordnet](https://www.nltk.org/).
 
 To install NLTK Wordnet:
