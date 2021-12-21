@@ -1,23 +1,36 @@
-import numpy as np
-import sys
 from matplotlib import pyplot as plt
+from numpy.polynomial.polynomial import polyfit
+import numpy as np
 
-probs = np.load(sys.argv[1])
+import sys
 
-plt.title("Grover Confidence vs. Number of Synonyms (Human Article)")
-plt.xlabel("Number of synonyms replaced")
-plt.ylabel("Grover confidence")
+#probs result from article 2
+res2 = np.load(sys.argv[1])
+res2
 
-for i in range(0, 373):
-    plt.plot(i, probs[i][0], i, probs[i][1])
 
-plt.show()
+res2 = np.transpose(res2)
 
-plt.title("Grover Confidence vs. Number of Synonyms (Machine Article)")
-plt.xlabel("Number of synonyms replaced")
-plt.ylabel("Grover confidence")
+machine = res2[0].copy()
+human = res2[1].copy()
 
-for i in range(373, 1041):
-    plt.plot(i, probs[i][0], i, probs[i][1])
+x = np.array([i for i in range(len(res2[0])) ])
+#xn = np.linspace(1, len(res2[0]), len(res2[0])*10)
+
+machine_data = plt.scatter(x,machine, c ="blue",
+            linewidths = 1,
+            marker ="^", 
+            s = 50,
+           label = "Machine")
+human_data = plt.scatter(x, human, c ="orange", 
+            linewidths = 2, 
+            marker ="s", 
+            s = 30)
+
+plt.ylabel("Probability")
+plt.xlabel("Number of synonyms")
+plt.title("Number of synonyms vs. Grover confidence")
+
+plt.legend((machine_data, human_data), ("Machine", "Human"))
 
 plt.show()
