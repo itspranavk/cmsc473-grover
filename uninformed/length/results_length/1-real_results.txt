@@ -1,0 +1,4 @@
+Machine: 0, Human: 1
+Prediction Labels:  [1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1]
+Actual Labels:  [1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1]
+test ACCURACY IS 1.000
