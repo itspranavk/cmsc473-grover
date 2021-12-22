@@ -16,7 +16,6 @@ grover_keys = ['article', 'domain', 'title', 'date', 'authors', 'ind30k', 'url',
 
 # Ordered_Dict = {k : Not_Ordered_Dict[k] for k in key_order}
 
-
 new_list = []
 
 for json_str in json_list:
